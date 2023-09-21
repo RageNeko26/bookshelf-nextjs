@@ -1,7 +1,7 @@
 export interface DBCredentials {
-  user: string,
-  password: string,
-  host: string,
-  port: string,
-  db: string,
+  user: string | undefined,
+  password: string | undefined,
+  host: string | undefined ,
+  port: string | undefined,
+  db: string | undefined,
 }
