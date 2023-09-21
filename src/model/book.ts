@@ -22,8 +22,13 @@ const book = sequelize.define("books", {
   }
 })
 
-sequelize.authenticate().then((_res) => {
-  console.log("Connection to database is success!")
-}).catch((err) => {
-  console.log(err)
-})
+export const TestDBConnection = async() => {
+  try {
+    await sequelize.authenticate()
+    console.log("Connection has been established!") 
+  } catch(err) {
+    console.log(`Failed to connect database: ${err}`)
+  }
+}
+
+
