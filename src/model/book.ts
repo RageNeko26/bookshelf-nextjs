@@ -1,12 +1,15 @@
 import { Sequelize,  DataTypes } from "sequelize"
+import { DBCredentials } from "../types/db"
 
-const DB_USER = process.env.DB_USER
-const DB_PASS = process.env.DB_PASSWORD
-const DB_HOST = process.env.DB_HOST
-const DB_PORT = process.env.DB_PORT
-const DB_NAME = process.env.DB_NAME
+const config: DBCredentials = {
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  db: process.env.DB_NAME,
+}
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`)
+const sequelize = new Sequelize(`postgres://${config.user}:${config.password}@${config.host}:${config.port}/${config.db}`)
 
 const book = sequelize.define("books", {
   title: {
