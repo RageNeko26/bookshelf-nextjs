@@ -1,7 +1,12 @@
+'use client'
+import { NavContainer } from "../components/Navbar.style"
+
 export default function Home() {
   return (
-    <main className="">
-      <h2>Hello world!</h2> 
-    </main>
+    <>
+      <NavContainer>
+        <h2>Hello world!</h2>
+      </NavContainer>
+    </>
   )
 }
