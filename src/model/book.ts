@@ -22,12 +22,15 @@ const book = sequelize.define("books", {
   }
 })
 
-export const TestDBConnection = async() => {
+export const InitializeDB = async() => {
   try {
     await sequelize.authenticate()
-    console.log("Connection has been established!") 
+    console.log("Connection has been established!")
+
+    await book.sync()
+    console.log("Book model is synced")
   } catch(err) {
-    console.log(`Failed to connect database: ${err}`)
+    console.log(`Error initalizing database: ${err}`)
   }
 }
 
